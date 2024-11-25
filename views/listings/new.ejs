@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+  <div class="col-8 offset-2">
+    <br /><br />
+    <h3>Create a New Listing</h3>
+    <form method="POST" action="/listings"  class="needs-validation">
+      <div class="mb-3">
+      <label for="title" class="form-label">Title</label> 
+      <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control"pattern="[A-Za-z\s]+" required/>
+      <div class="valid-feedback">Look's good !</div>
+      <div class="invalid-feedback">Please enter  !</div>
+      </div>
+     <div class="mb-3">
+      <label for="desription" class="form-label">Description</label>
+      <textarea name="listing[description]" placeholder="enter description" class="form-control"  type="text" required></textarea> 
+      <div class="valid-feedback">Look's good !</div>
+      <div class="invalid-feedback">Please enter  !</div>
+     </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image-Link</label> 
+        <!--  For Validation Check --=1. Check required Attributes: -->
+        <!-- Ensure each input field has the required attribute. For example: -->
+        <input name="listing[image]" placeholder="Enter image URL/Link" type="url" class="form-control" required />
+        <!-- If the required attribute is not set in the input fields themselves but is instead enforced in your backend schema, the browser won't automatically validate those fields. 
+         HTML required attributes enable client-side validation, while schema validations happen server-side after form submission. -->
+
+         <div class="invalid-feedback">Please enter  !</div>
+        </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+        <label for="price" class="form-label">Price</label> 
+        <input name="listing[price]" placeholder="1200" type="number" class="form-control" required />
+        <div class="valid-feedback">Look's good !</div>
+        <div class="invalid-feedback">Please enter  !</div>
+      </div>
+
+      <div class="mb-3 col-md-8">
+        <label for="country" class="form-label">Country</label> 
+        <input name="listing[country]" placeholder="India" type="text" class="form-control" required/>
+        <div class="valid-feedback">Look's good !</div>
+        <div class="invalid-feedback">Please enter  !</div>
+      </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]"  placeholder="Nirmal,Telangana" type="text" class="form-control" required/> 
+        <div class="valid-feedback">Look's good !</div>
+        <div class="invalid-feedback">Please enter  !</div>
+      </div>
+      
+      <br /><br />
+      <button class="btn btn-dark add-btn mt-3">Add</button>
+      <br /><br />
+    </form>
+  </div>
+  </div>
+ <script src="/js/script.js"></script>
