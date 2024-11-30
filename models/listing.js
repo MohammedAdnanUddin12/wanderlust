@@ -3,7 +3,7 @@ const { defaults } = require("joi");
 
 const mongoose = require ("mongoose");
 const Schema = mongoose.Schema;
-
+const Review = require("./review.js");
 
 const listingSchema = new mongoose.Schema({
     title: { type: String, required: true },
@@ -28,7 +28,12 @@ const listingSchema = new mongoose.Schema({
     ],
 });
 
-  
+  listingSchema.post("findOneAndDelete", async(listing) =>{
+    if(listing){
+        await Review.deleteMany({ _id: {$in: listing.reviews }}); //listing.reviews ke array me jitne review id hai unki list banalenge and _id  uss listing.reviews ke id ka part hogi tho usse _id wala puura review delete kardega 
+  };
+
+  });
 const Listing = mongoose.model("Listing", listingSchema);
 module.exports = Listing;
 //model or class
