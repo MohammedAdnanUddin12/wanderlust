@@ -1,4 +1,4 @@
-app.get("/testlisting",async (req,res) =>{
+// app.get("/testlisting",async (req,res) =>{
 //     let samplelisting = new Listing({
 //         title: "My New Villa",
 //         description: "By the beach",
